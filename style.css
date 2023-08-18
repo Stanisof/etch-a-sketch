@@ -1,6 +1,15 @@
 @font-face {
     font-family: PixelDraw;
-    src: url('PixelDraw.ttf');
+    src: url('./fonts/PixelDraw.ttf');
+}
+@font-face {
+    font-family: Handjet;
+    src: url('./fonts/Handjet-VariableFont_ELGR\,ELSH\,wght.ttf')
+}
+
+
+body {
+    background-color: #F4E0B9;
 }
 
 .title {
@@ -12,6 +21,15 @@
 .container {
     display: flex;
     justify-content: center;
+}
+
+.border {
+    display: flex;
+    border-style: solid;
+    border-width: 8px ;
+    border-color:#FE0000;
+    border-radius: 5%;
+    padding: 30px;
     
 }
 
@@ -23,12 +41,34 @@
 }
 
 #clear,
-#color {
-
-    font-size: larger;
-    height: 35px;
-    width: 120px;
+#color,
+#shades {
+    font-family: Handjet;
+    font-size: 30px;
+    height: 45px;
+    width: 130px;
+    background-color: #A8A196;
+    border: none;
+    text-align: center;
+    text-decoration: none;
 }
+
+#slider {
+    -webkit-appearance: none;
+    background-color: #A8A196;
+    height: 5px;
+}
+
+#slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #FE0000;
+    cursor: pointer;
+  }
+
 
 #canvas {
     display: flex;

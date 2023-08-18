@@ -1,12 +1,16 @@
-const container = document.querySelector('#canvas');
+const border = document.querySelector('#canvas');
 const slider = document.querySelector('#slider');
-
+let colorButton = false;
 let boxCount = slider.value * slider.value;
 let pixelSize = (800 / slider.value) + "px";
 
+createCanvas();
 
-
-
+function createCanvas() {
+    for (let i = 0; i < boxCount; i++) {
+        createBox()
+    }
+}
 
 slider.oninput = function() {
    pixelSize = (800 / slider.value) +"px";
@@ -17,11 +21,16 @@ slider.oninput = function() {
     createCanvas();
 }
 
-function createCanvas() {
-    for (let i = 0; i < boxCount; i++) {
-        createBox()
+const color = document.getElementById('color')
+color.addEventListener('click', () => {
+    if(colorButton){
+        color.style.borderStyle = 'none';
+        colorButton = false;
+    } else {    
+        colorButton = true;
+        color.style.border = 'solid 5px #7D7463';
     }
-}
+})
 
 
 function createBox(){
@@ -30,30 +39,27 @@ function createBox(){
     box.classList.add('box');
     box.style.height= pixelSize;
     box.style.width= pixelSize;
-    container.appendChild(box);
+    border.appendChild(box);
 
-    let button = false;
-    document.getElementById('color').addEventListener('click', () => {
-        button = true;
-        console.log(button)
-    })
-
-    if(button){
-        /* let randomColor = ["deepskyblue", "greenyellow", "lightpink", "tomato", "lightgoldenrodyellow"]
-        let num = Math.floor(Math.random() * randomColor.length); */
-        box.addEventListener('mouseover', () => {
-        box.style.backgroundColor = 'yellow';
-    })    } else {    
+    
+ let randomColor = ["deepskyblue", "greenyellow", "lightpink", "tomato", "lightgoldenrodyellow"]
+        let num = Math.floor(Math.random() * randomColor.length);
+        
+        
     box.addEventListener('mouseover', () => {
-        box.style.backgroundColor = 'black';
-    });
+        if(colorButton){
+            box.style.backgroundColor = randomColor[num];
+        } else {
+        box.style.backgroundColor = '#7D7463';
     }
-
+    });
     
-    
-
     const clear = document.querySelector('#clear');
     clear.addEventListener('click', () => {
-    box.style.backgroundColor = 'white';
+    box.style.backgroundColor = '#F4E0B9';
     })
+}
+
+function createColor() {
+
 }
