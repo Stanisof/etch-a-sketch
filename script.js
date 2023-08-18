@@ -1,4 +1,4 @@
-const border = document.querySelector('#canvas');
+const canvas = document.querySelector('#canvas');
 const slider = document.querySelector('#slider');
 let colorButton = false;
 let shadeButton = false;
@@ -51,7 +51,7 @@ function createBox(){
     box.classList.add('box');
     box.style.height= pixelSize;
     box.style.width= pixelSize;
-    border.appendChild(box);
+    canvas.appendChild(box);
 
     
  let randomColor = ["deepskyblue", "greenyellow", "lightpink", "tomato", "lightgoldenrodyellow"]
@@ -76,8 +76,4 @@ function createBox(){
     clear.addEventListener('click', () => {
     box.style.backgroundColor = 'floralwhite';
     })
-}
-
-function createColor() {
-
 }
