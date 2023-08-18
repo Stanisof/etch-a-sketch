@@ -1,6 +1,7 @@
 const border = document.querySelector('#canvas');
 const slider = document.querySelector('#slider');
 let colorButton = false;
+let shadeButton = false;
 let boxCount = slider.value * slider.value;
 let pixelSize = (800 / slider.value) + "px";
 
@@ -32,6 +33,17 @@ color.addEventListener('click', () => {
     }
 })
 
+const shade = document.getElementById('shade')
+shade.addEventListener('click', () => {
+    if(shadeButton){
+        shade.style.borderStyle = 'none';
+        shadeButton = false;
+    } else {    
+        shadeButton = true;
+        shade.style.border = 'solid 5px #7D7463';
+    }
+})
+
 
 function createBox(){
 
@@ -44,19 +56,25 @@ function createBox(){
     
  let randomColor = ["deepskyblue", "greenyellow", "lightpink", "tomato", "lightgoldenrodyellow"]
         let num = Math.floor(Math.random() * randomColor.length);
-        
+ let opacity = 0.1;
         
     box.addEventListener('mouseover', () => {
         if(colorButton){
             box.style.backgroundColor = randomColor[num];
+            box.style.opacity = '1';
+        } else if(shadeButton) {
+            box.style.backgroundColor = 'black';
+            box.style.opacity = opacity;
+            opacity += 0.1;
         } else {
         box.style.backgroundColor = '#7D7463';
+        box.style.opacity = '1';
     }
     });
     
     const clear = document.querySelector('#clear');
     clear.addEventListener('click', () => {
-    box.style.backgroundColor = '#F4E0B9';
+    box.style.backgroundColor = 'floralwhite';
     })
 }
 

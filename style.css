@@ -42,7 +42,7 @@ body {
 
 #clear,
 #color,
-#shades {
+#shade {
     font-family: Handjet;
     font-size: 30px;
     height: 45px;
@@ -73,6 +73,7 @@ body {
 #canvas {
     display: flex;
     flex-wrap: wrap;
+    background-color: floralwhite;
     width: 800px;
     height: 800px;
 }
